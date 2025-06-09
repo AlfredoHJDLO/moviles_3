@@ -1,12 +1,12 @@
-class ProductModel {
+class TiendaModel {
   int id;
   String title;
   String description;
   double price;
   String category;
-  String media;  // El campo 'media' es para la ruta o nombre del archivo de la imagen o video
+  String media;
 
-  ProductModel({
+  TiendaModel({
     required this.id,
     required this.title,
     required this.description,
@@ -15,9 +15,8 @@ class ProductModel {
     required this.media,
   });
 
-  // Factory para crear un ProductModel desde un JSON
-  factory ProductModel.fromJSON(Map<String, dynamic> json) {
-    return ProductModel(
+  factory TiendaModel.fromJSON(Map<String, dynamic> json) {
+    return TiendaModel(
       id: json['id'],
       title: json['title'],
       description: json['description'],
@@ -27,7 +26,6 @@ class ProductModel {
     );
   }
 
-  // Conversor a JSON para enviar al backend
   Map<String, dynamic> toJSON() {
     return {
       'id': id,
@@ -37,10 +35,5 @@ class ProductModel {
       'category': category,
       'media': media,
     };
-  }
-
-  @override
-  String toString() {
-    return 'Product(id: $id, title: $title, price: $price, category: $category)';
   }
 }
